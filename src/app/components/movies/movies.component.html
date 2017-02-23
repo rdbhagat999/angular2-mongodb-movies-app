@@ -13,7 +13,7 @@
 
   		<a [routerLink]="[movie?._id]" routerLinkActive="active" (click)="getMovie( movie )">
 
-		  	<img src="uploads/movies/{{movie?.poster}}" class="img-responsive">
+		  	<img src="/movies/{{movie?.poster}}" class="img-responsive">
 
 		  	<div class="poster-info-overlay">
 		  		<h3>{{movie?.title}} </h3>

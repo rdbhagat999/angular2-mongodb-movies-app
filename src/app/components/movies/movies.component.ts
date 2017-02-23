@@ -14,28 +14,33 @@ export class MoviesComponent implements OnInit {
 
 	}
 
-	movies: Movie[] = [];
+	movies: any = [];
 
 	ngOnInit() {
 
-		this._ms.getMovies().subscribe( ( movies: Movie[] ) => { 
-			//console.log(movies); 
-			this.movies = movies;
+		this._ms.getMovies().subscribe( ( data: any ) => { 
+
+			if( data.success == true ){
+
+				console.log(data.movies); 
+				this.movies = data.movies;
+			}
+
 		} );
 
 	}
 
 	getMovie( movie: Movie ) {
 
-		//console.log(movie);
+		console.log(movie);
 
-		this.router.navigate(['movies', movie._id]);
+		this.router.navigate(['details', movie._id]);
 
 	}
 
 	addMoviePage() {
 
-		this.router.navigate(['movies/create']);
+		this.router.navigate(['create']);
 
 	}
 
