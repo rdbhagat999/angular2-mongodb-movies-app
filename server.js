@@ -26,6 +26,7 @@ app.disable('x-powered-by');
 
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use(express.static(path.join(__dirname, 'uploads')));
+app.use(express.static(path.join(__dirname, 'assets')));
 app.use( cors() );
 app.use(bodyParser.json()); // to send and recieve json data
 app.use(bodyParser.urlencoded({ extended: true })); // TRUE to use with postman

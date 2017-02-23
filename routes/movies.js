@@ -13,7 +13,8 @@ const storage = multer.diskStorage({
     cb(null, dir + '/../uploads/movies/');
   },
   filename: function (req, file, cb) {
-    cb(null, Date.now() + file.originalname);
+    //cb(null, Date.now() + file.originalname);
+    cb(null, file.originalname);
   }
 })
 
