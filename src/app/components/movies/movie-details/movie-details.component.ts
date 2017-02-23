@@ -32,8 +32,12 @@ export class MovieDetailsComponent implements OnInit {
 	  this.route.params
 	    // (+) converts string 'id' to a number
 	    .switchMap((params: Params) => this._ms.getMovie(params['id']))
-	    .subscribe((movie: Movie) => {
-	    	this.movie = movie;
+	    .subscribe((data: any) => {
+
+	    	if( data.success == true ){
+	    		this.movie = data.movie;
+	    	}
+	  
 	    });
 
 

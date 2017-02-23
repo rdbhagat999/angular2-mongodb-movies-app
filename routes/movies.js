@@ -46,7 +46,7 @@ router.get('/movies/:id', function( req, res, next ){
 });
 
 
-router.post( '/movies/', cpUpload, function( req, res, next ){
+router.post('/movies/', cpUpload, function( req, res, next ){
 
 	var movie = new Movie();
 	movie.title = req.body.title;
