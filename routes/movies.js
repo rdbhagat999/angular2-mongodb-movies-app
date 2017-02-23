@@ -88,7 +88,7 @@ router.put('/movies/:id', cpUpload, function( req, res, next ){
       return res.json( { success: true, movie: updatedMovie } );
     })
     .catch(function(e){
-      return res.status(400).json( {success: false, error: e} );
+      return res.json( {success: false, error: e} );
     });
 
 });
@@ -100,7 +100,7 @@ router.delete('/movies/:id', function( req, res, next ){
       res.json({success: false, movie: deletedMovie});
     })
     .catch(function(e) {
-      res.status(400).json({success: false, error: e});
+      res.json({success: false, error: e});
     });
 
 });
