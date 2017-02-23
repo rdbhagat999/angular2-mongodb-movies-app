@@ -33,7 +33,7 @@ Hero Image / Title Styles
 	height: 550px;
 	width: 100%;
 	background-color: #444;
-	background-image: url('uploads/movies/death_star_image.jpg');
+	background-image: url('movies/death_star_image.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
