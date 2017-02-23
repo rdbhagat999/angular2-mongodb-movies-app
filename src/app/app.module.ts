@@ -13,6 +13,8 @@ import { AddMovieComponent } from './components/movies/add-movie/add-movie.compo
 import { EditMovieComponent } from './components/movies/edit-movie/edit-movie.component';
 import { MovieDetailsComponent } from './components/movies/movie-details/movie-details.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { HowItWorksComponent } from './components/how-it-works/how-it-works.component';
+import { MoviesService } from './services/movies.service';
 
 const appRoutes: Routes = [
   { path:"", component:HomeComponent },
@@ -20,7 +22,8 @@ const appRoutes: Routes = [
   { path:"add", component:AddMovieComponent },
   { path:"edit", component:EditMovieComponent },
   { path:"details", component:MovieDetailsComponent },
-  { path:"contact", component:ContactComponent }
+  { path:"contact", component:ContactComponent },
+  { path:"howitworks", component:HowItWorksComponent }
 ];
 
 @NgModule({
@@ -33,7 +36,8 @@ const appRoutes: Routes = [
     AddMovieComponent,
     EditMovieComponent,
     MovieDetailsComponent,
-    ContactComponent
+    ContactComponent,
+    HowItWorksComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [MoviesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

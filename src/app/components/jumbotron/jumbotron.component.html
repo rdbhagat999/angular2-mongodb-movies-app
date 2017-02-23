@@ -1,3 +1,10 @@
-<p>
-  jumbotron works!
-</p>
+<!-- Main component for a primary marketing message or call to action -->
+<div class="jumbotron">
+	<div class="container">
+		<h1>{{ title }}</h1>
+		<p>{{ description }}</p>
+		<p>
+		  <a class="btn btn-lg btn-primary" [routerLink]="['howitworks']" role="button">How it works! &raquo;</a>
+		</p>
+	</div>
+</div>

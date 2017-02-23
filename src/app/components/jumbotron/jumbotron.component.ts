@@ -12,4 +12,8 @@ export class JumbotronComponent implements OnInit {
   ngOnInit() {
   }
 
+  title:string = 'MEAN App';
+  aboutUrl:string = 'howitworks';
+  description:string = 'A group of projects based on the stack of latest technologies such as MongoDB, Angular2, Express and NodeJs.';
+
 }
