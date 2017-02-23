@@ -9,8 +9,8 @@
 				<label for="title">Title</label>
 				<input type="text" id="title" class="form-control" formControlName="title" required />
 
-				<div *ngIf="formErrors.title" class="alert alert-danger">
-				  {{ formErrors.title }}
+				<div *ngIf="formErrors?.title" class="alert alert-danger">
+				  {{ formErrors?.title }}
 				</div>
 
 			</div>
@@ -19,8 +19,8 @@
 				<label for="year">Year</label>
 				<input type="text" id="year" class="form-control" formControlName="year" required />
 
-				<div *ngIf="formErrors.year" class="alert alert-danger">
-				  {{ formErrors.year }}
+				<div *ngIf="formErrors?.year" class="alert alert-danger">
+				  {{ formErrors?.year }}
 				</div>
 
 			</div>
@@ -30,8 +30,8 @@
 				<label for="description">Description</label>
 				<textarea type="text" id="description" class="form-control" formControlName="description" required ></textarea>
 
-				<div *ngIf="formErrors.description" class="alert alert-danger">
-				  {{ formErrors.description }}
+				<div *ngIf="formErrors?.description" class="alert alert-danger">
+				  {{ formErrors?.description }}
 				</div>
 
 			</div>
@@ -40,7 +40,7 @@
 				<label for="poster">Poster</label>
 				<input id="poster" type="file" class="form-control" formControlName="poster">
 			</div>
-			
+
 			<div formArrayName="actors">
 
 				<label for="actors">Characters</label>
@@ -49,8 +49,8 @@
 
 					<input type="text" [id]="i" class="form-control" [formControlName]="i" required />
 
-					<div *ngIf="formErrors.actors" class="alert alert-danger">
-					  {{ formErrors.actors }}
+					<div *ngIf="formErrors?.actors" class="alert alert-danger">
+					  {{ formErrors?.actors }}
 					</div>
 
 				</div>

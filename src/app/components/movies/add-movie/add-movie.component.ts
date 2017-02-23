@@ -41,14 +41,14 @@ export class AddMovieComponent implements OnInit {
 			title: ['', [
 				Validators.required,
 				Validators.minLength(4),
-				Validators.maxLength(30)
+				Validators.maxLength(60)
 				]
 			],
 
 			description: ['', [
 				Validators.required,
 				Validators.minLength(15),
-				Validators.maxLength(90)
+				Validators.maxLength(300)
 			]],
 
 			year: ['', [
@@ -65,7 +65,7 @@ export class AddMovieComponent implements OnInit {
 		});
 
 		this.addMovieForm.valueChanges
-			.debounceTime(1500)
+			.debounceTime(900)
 	      	.subscribe(data => this.onValueChanged(data));
 
 		this.onValueChanged(); // (re)set validation messages now
@@ -107,13 +107,12 @@ export class AddMovieComponent implements OnInit {
 		/*console.log(this.movie);
 		console.log(file);*/
 
-		/*this._ms.postMovieWithFile('', this.movie, file).then(result => {
+		this._ms.postMovieWithFile('', this.movie, file).then(result => {
 	        console.log(result);
 	        this.router.navigate(['movies'])
-	    });*/
+	    });
 
 	}
-
 
 	formErrors = {
 		'title': '',
@@ -125,7 +124,7 @@ export class AddMovieComponent implements OnInit {
 		'title': {
 			'required': 'Title is required.',
 			'minlength': 'Title must be at least 4 characters long.',
-			'maxlength': 'Title cannot be more than 30 characters long.'
+			'maxlength': 'Title cannot be more than 60 characters long.'
 		},
 		'year': {
 			'required': 'Year is required.',
@@ -135,7 +134,7 @@ export class AddMovieComponent implements OnInit {
 		'description': {
 			'required': 'Description is required.',
 			'minlength': 'Description must be at least 15 characters long.',
-			'maxlength': 'Description cannot be more than 90 characters long.'
+			'maxlength': 'Description cannot be more than 300 characters long.'
 		}
 	};
 
