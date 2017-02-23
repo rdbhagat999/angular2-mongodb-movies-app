@@ -19,9 +19,9 @@ import { MoviesService } from './services/movies.service';
 const appRoutes: Routes = [
   { path:"", component:HomeComponent },
   { path:"movies", component:MoviesComponent },
-  { path:"add", component:AddMovieComponent },
-  { path:"edit", component:EditMovieComponent },
-  { path:"details", component:MovieDetailsComponent },
+  { path:"create", component:AddMovieComponent },
+  { path:"edit/:id", component:EditMovieComponent },
+  { path:"details/:id", component:MovieDetailsComponent },
   { path:"contact", component:ContactComponent },
   { path:"howitworks", component:HowItWorksComponent }
 ];

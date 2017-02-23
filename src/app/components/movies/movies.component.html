@@ -1,3 +1,27 @@
-<p>
-  movies works!
-</p>
+<div id="hero-image">
+	<h1 id="hero-title">
+		<span>Super Movies
+			<a [routerLink]="['create']" routerLinkActive="active" class="btn btn-primary" (click)="addMoviePage()">Add Movie</a>
+		</span>
+		
+	</h1>
+</div>
+
+<div id="posters-wrapper" class="content-padding clearfix">
+  	
+  	<div class="poster" *ngFor="let movie of movies">
+
+  		<a [routerLink]="[movie?._id]" routerLinkActive="active" (click)="getMovie( movie )">
+
+		  	<img src="uploads/movies/{{movie?.poster}}" class="img-responsive">
+
+		  	<div class="poster-info-overlay">
+		  		<h3>{{movie?.title}} </h3>
+		  		<h4>View More <i class="fa fa-arrow-right"></i></h4>
+		  	</div>
+
+	  	</a>
+
+	</div>		  	  
+  
+</div>
