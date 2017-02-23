@@ -12,7 +12,7 @@ export class MoviesService {
 
 	}
 
-	baseUrl = 'http://localhost:3000/api/movies';
+	baseUrl = 'https://ng2moviesapp.herokuapp.com/api/movies';
 	//baseUrl = 'http://localhost:3000/api/movies';
 
 	responseData: any;
