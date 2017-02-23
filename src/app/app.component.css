@@ -33,7 +33,7 @@ Hero Image / Title Styles
 	height: 550px;
 	width: 100%;
 	background-color: #444;
-	background-image: url('movies/death_star_image.jpg');
+	background-image: url('/movies/death_star_image.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -488,7 +488,7 @@ Page Not Found Template Styles
 	height: 550px;
 	width: 100%;
 	background-color: #444;
-	background-image: url('../images/404.jpg');
+	background-image: url('/movies/404.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
