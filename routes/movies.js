@@ -1,24 +1,24 @@
 var express = require('express');
 var router = express.Router();
-var mongoose = require('bluebird').promisifyAll(require('mongoose'))
+
 const config = require('../config/config');
 
-var Movie = require('../models/movie.model.js');
+const Movie = require('../models/movie.model.js');
 
-var multer  = require('multer');
-var dir = __dirname;
+const multer  = require('multer');
+const dir = __dirname;
 
-var storage = multer.diskStorage({
+const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, dir + '/../client/uploads/movies/');
+    cb(null, dir + '/../uploads/movies/');
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + file.originalname);
   }
 })
 
-var upload = multer({ storage: storage });
-var cpUpload = upload.fields([{ name: 'poster', maxCount: 1 } /* , { name: 'hero_img', maxCount: 1}*/  ]);
+const upload = multer({ storage: storage });
+const cpUpload = upload.fields([{ name: 'poster', maxCount: 1 } /* , { name: 'hero_img', maxCount: 1}*/  ]);
 
 
 // Get all tasks
@@ -26,7 +26,7 @@ router.get('/movies', function( req, res, next ) {
 
 	Movie.findAsync({})
 	.then( function( movies ) {
-		res.json( movies );
+		res.json( {success:true, movies:movies} );
 	} )
 	.catch( next )
 	.error( console.error );
@@ -38,7 +38,7 @@ router.get('/movies/:id', function( req, res, next ){
 
 	Movie.findOneAsync( { _id: req.params.id } )
     .then(function( movie ) {
-      res.json( movie );
+      res.json( {success:true, movie:movie} );
     })
     .catch( next )
     .error( console.error );
@@ -62,11 +62,11 @@ router.post( '/movies/', cpUpload, function( req, res, next ){
   movie.saveAsync()
   .then(function(movie) {
     console.log("success");
-    res.json({'status': 'success', 'movie': movie});
+    res.json({success: true, movie: movie});
   })
   .catch(function(e) {
     console.log("fail");
-    res.json({'status': 'error', 'error': e});
+    res.json({success: false, error: e});
   })
   .error(console.error);
 
@@ -84,10 +84,10 @@ router.put('/movies/:id', cpUpload, function( req, res, next ){
 
 	Movie.updateAsync( { _id: req.params.id }, movie )
     .then(function( updatedMovie ) {
-      return res.json( { 'status': 'success', 'movie': updatedMovie } );
+      return res.json( { success: true, movie: updatedMovie } );
     })
     .catch(function(e){
-      return res.status(400).json( {'status': 'fail', 'error': e} );
+      return res.status(400).json( {success: false, error: e} );
     });
 
 });
@@ -96,10 +96,10 @@ router.delete('/movies/:id', function( req, res, next ){
 
 	Movie.findByIdAndRemoveAsync(req.params.id)
     .then(function(deletedMovie) {
-      res.json({'status': 'success', 'movie': deletedMovie});
+      res.json({success: false, movie: deletedMovie});
     })
     .catch(function(e) {
-      res.status(400).json({'status': 'fail', 'error': e});
+      res.status(400).json({success: false, error: e});
     });
 
 });

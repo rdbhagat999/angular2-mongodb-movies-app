@@ -2,6 +2,7 @@
 mongoose.Promise = require('bluebird');
 */
 var mongoose = require('bluebird').promisifyAll(require('mongoose'));
+const config = require('../config/config');
 
 var Schema = mongoose.Schema;
 

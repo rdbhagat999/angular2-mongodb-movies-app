@@ -18,15 +18,18 @@ mongoose.connection.on('error', ( err ) => {
 });
 
 // Database section END
-const movies = require('./routes/movies');
+const movies = require('./routes/movies.js');
 
 const app = express();
+
+app.disable('x-powered-by');
+
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use( cors() );
 app.use(bodyParser.json()); // to send and recieve json data
 app.use(bodyParser.urlencoded({ extended: true })); // TRUE to use with postman
 
-app.use('api', movies);
+app.use('/api', movies);
 
 // Routes
 app.get('/', function( req, res, next ) {
