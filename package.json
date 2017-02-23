@@ -10,9 +10,7 @@
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e",
+    "lint": "tslint \"src/**/*.ts\"",
     "postinstall": "ng build"
   },
   "private": true,
