@@ -9,7 +9,7 @@ var Schema = mongoose.Schema;
 var MovieSchema = new Schema({
 	year: Number,
 	title: String,
-	main_characters: [],
+	main_characters: [String],
 	description: String,
 	poster: String,
 	hero_image: String

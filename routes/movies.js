@@ -53,17 +53,18 @@ router.post('/movies/',  cpUpload, function( req, res, next ){
 	m.title = req.body.title;
 	m.year = req.body.year;
 	m.description = req.body.description;
-	m.main_characters = [];
 	m.poster = req.files.poster[0].filename;
 	m.hero_image = 'death_star_image.jpg';
+	
+  //console.log(typeof req.body.actors)
+  actors = req.body.actors.split(",");
+   console.log(m);
+   for(var i=0; i < actors.length; i++){
+      let actor = actors[i];
+      m.main_characters.push(actor);
+   }
 
-  for (var i in req.body.actors) {
-    var actor = req.body.actors[i];
-    m.main_characters.push(actor);
-  }
-
-  console.log(m.main_characters);
-	// res.send(req.body);
+  //res.json(m);
 
   m.saveAsync()
   .then(function(movie) {
