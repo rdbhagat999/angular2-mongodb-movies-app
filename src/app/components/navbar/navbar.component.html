@@ -42,9 +42,9 @@
         <div id="navbar" class="navbar-collapse collapse" [ngClass]="{'in': isCollapse}" aria-expanded="false" [ngStyle]="{'height': navbarHeight}">
           <ul class="nav navbar-nav">
 
-            <li class="active" (click)="toggleMobileNav()"><a [routerLink]="['']">Home</a></li>
+            <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" (click)="toggleMobileNav()"><a [routerLink]="['']">Home</a></li>
 
-            <li class="dropdown" [ngClass]="{'open': isOpen}" (click)="toggleClass()">
+            <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="dropdown" [ngClass]="{'open': isOpen}" (click)="toggleClass()">
               <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Movies <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li class="dropdown-header">Top Movies</li>
@@ -53,7 +53,7 @@
               </ul>
             </li>
 
-            <li (click)="toggleMobileNav()"><a [routerLink]="['contact']">Contact</a></li>
+            <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" (click)="toggleMobileNav()"><a [routerLink]="['contact']">Contact</a></li>
            
           </ul>
         </div><!--/.nav-collapse -->
