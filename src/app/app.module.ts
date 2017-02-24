@@ -15,6 +15,7 @@ import { MovieDetailsComponent } from './components/movies/movie-details/movie-d
 import { ContactComponent } from './components/contact/contact.component';
 import { HowItWorksComponent } from './components/how-it-works/how-it-works.component';
 import { MoviesService } from './services/movies.service';
+import { FooterComponent } from './components/footer/footer.component';
 
 const appRoutes: Routes = [
   { path:"", component:HomeComponent },
@@ -37,7 +38,8 @@ const appRoutes: Routes = [
     EditMovieComponent,
     MovieDetailsComponent,
     ContactComponent,
-    HowItWorksComponent
+    HowItWorksComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
