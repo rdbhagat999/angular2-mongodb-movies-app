@@ -76,7 +76,7 @@ Hero Image / Title Styles
 /* ---------------------------------------
 Navbar and Navigation Styles / Overrides 
 ------------------------------------------ */
-.navbar-fixed-top {
+/*.navbar-fixed-top {
 	position: absolute;
 	padding-top: 10px;
 }
@@ -86,13 +86,13 @@ Navbar and Navigation Styles / Overrides
 	text-transform: uppercase;
 	letter-spacing: 0.3px;
 	font-size: 12px;
-}
+}*/
 
 .dropdown.open .dropdown-menu li a {
 	transition: 0.5s ease-in-out;
 }
 
-.dropdown.open .dropdown-menu li a:hover {
+/*.dropdown.open .dropdown-menu li a:hover {
 	color: #fde5b9;
 }
 
@@ -111,7 +111,7 @@ Navbar and Navigation Styles / Overrides
 
 .navbar-nav>li>.dropdown-menu {
 	background-color: rgba(0,0,0,0.5);
-}
+}*/
 
 
 
@@ -431,7 +431,7 @@ Media Queries / Responsive Styles
 }
 
 /* Move navigation to the left and prevent default styles on mobile devices */
-@media (max-width: 767px) {
+/*@media (max-width: 767px) {
 	.navbar-right {
 		float: left;
 	}
@@ -444,7 +444,7 @@ Media Queries / Responsive Styles
 		background-color: rgba(0,0,0,0.5);
 	}
 	
-}
+}*/
 
 /* Decrease font size and padding of poster overlay on mobile devices */
 @media (max-width: 767px) {

@@ -13,9 +13,16 @@ export class NavbarComponent implements OnInit {
   }
 
   isOpen: boolean = false;
+  isCollapse: boolean = false;
+  navbarHeight: string ="1px";
 
   toggleClass() {
   	this.isOpen = !this.isOpen;
+  }
+
+  toggleMobileNav() {
+  	this.isCollapse = !this.isCollapse;
+  	this.navbarHeight = "";
   }
 
 }
