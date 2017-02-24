@@ -20,6 +20,10 @@ export class NavbarComponent implements OnInit {
   	this.isOpen = !this.isOpen;
   }
 
+  colapseMenuBar(){
+    this.isCollapse = false;
+  }
+
   toggleMobileNav() {
   	this.isCollapse = !this.isCollapse;
   	this.navbarHeight = "";
