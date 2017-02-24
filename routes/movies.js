@@ -47,20 +47,25 @@ router.get('/movies/:id', function( req, res, next ){
 });
 
 
-router.post('/movies/', cpUpload, function( req, res, next ){
+router.post('/movies/',  cpUpload, function( req, res, next ){
 
-	var movie = new Movie();
-	movie.title = req.body.title;
-	movie.year = req.body.year;
-	movie.description = req.body.description;
-	movie.main_characters = req.body.actors;
-	movie.poster = req.files.poster[0].filename;
-	movie.hero_image = 'death_star_image.jpg';
+	var m = new Movie();
+	m.title = req.body.title;
+	m.year = req.body.year;
+	m.description = req.body.description;
+	m.main_characters = [];
+	m.poster = req.files.poster[0].filename;
+	m.hero_image = 'death_star_image.jpg';
 
-  /*console.log(movie);
-	res.json(movie);*/
+  for (var i in req.body.actors) {
+    var actor = req.body.actors[i];
+    m.main_characters.push(actor);
+  }
 
-  movie.saveAsync()
+  console.log(m.main_characters);
+	// res.send(req.body);
+
+  m.saveAsync()
   .then(function(movie) {
     console.log("success");
     res.json({success: true, movie: movie});
