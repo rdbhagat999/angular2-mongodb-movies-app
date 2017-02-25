@@ -12,7 +12,7 @@ export class JumbotronComponent implements OnInit {
   ngOnInit() {
   }
 
-  title:string = 'MEAN App';
+  title:string = 'TOP MOVIES APP';
   aboutUrl:string = 'howitworks';
   description:string = 'An app built on top of latest stack of technologies such as MongoDB, Angular2, Express and NodeJs.';
 
