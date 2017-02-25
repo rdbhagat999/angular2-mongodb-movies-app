@@ -12,4 +12,10 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
+  features: Object[] = [
+  	{name:'Backend', desc:'Node | Express backend server.'},
+  	{name:'Frontend', desc:'Angular-cli | to generate components, services and more.'},
+  	{name:'Database', desc:'MongoDB | to store data.'}
+  ];
+
 }
