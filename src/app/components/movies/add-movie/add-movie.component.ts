@@ -4,6 +4,7 @@ import { Movie } from '../movie';
 import { MoviesService } from '../../../services/movies.service';
 import { Router } from '@angular/router';
 import 'rxjs/add/operator/debounceTime';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-add-movie',
@@ -12,7 +13,7 @@ import 'rxjs/add/operator/debounceTime';
 })
 export class AddMovieComponent implements OnInit { 
 
-	constructor( private _ms:MoviesService, private router: Router, private fb: FormBuilder ) {
+	constructor( private _ms:MoviesService, private _fm:FlashMessagesService, private router: Router, private fb: FormBuilder ) {
 
 	}
 
@@ -48,7 +49,7 @@ export class AddMovieComponent implements OnInit {
 			description: ['', [
 				Validators.required,
 				Validators.minLength(15),
-				Validators.maxLength(300)
+				Validators.maxLength(900)
 			]],
 
 			year: ['', [
@@ -107,9 +108,13 @@ export class AddMovieComponent implements OnInit {
 		/*console.log(this.movie);
 		console.log(file);*/
 
-		this._ms.postMovieWithFile('', this.movie, file).then(result => {
+		this._ms.postMovieWithFile('', this.movie, file).then( result => {
 	        console.log(result);
+	        this._fm.show('Movie successfully saved.', {cssClass:'alert-success', timeout:3000});
 	        this.router.navigate(['movies'])
+	    },
+	    err => {
+	    	this._fm.show('Something went wrong! Please try again.', {cssClass:'alert-danger', timeout:3000});
 	    });
 
 	}
@@ -134,7 +139,7 @@ export class AddMovieComponent implements OnInit {
 		'description': {
 			'required': 'Description is required.',
 			'minlength': 'Description must be at least 15 characters long.',
-			'maxlength': 'Description cannot be more than 300 characters long.'
+			'maxlength': 'Description cannot be more than 900 characters long.'
 		}
 	};
 
