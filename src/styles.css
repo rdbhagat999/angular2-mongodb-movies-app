@@ -531,3 +531,8 @@ Page Not Found Template Styles
     position: relative;
     top: 7px;
 }
+
+.jumbotron {
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
