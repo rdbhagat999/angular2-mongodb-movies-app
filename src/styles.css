@@ -217,7 +217,27 @@ footer .social-media-icons a:first-child:hover i {
 }
 
 
-
+/* My custom css */
+.myLoader {
+    position: relative;
+    color: rgba(0, 0, 0, .3);
+    font-size: 5em;
+    background-color: #3498db;
+}
+.myLoader:before {
+    content: attr(data-text);
+    position: absolute;
+    overflow: hidden;
+    max-width: 7em;
+    white-space: nowrap;
+    color: #fff;
+    animation: loading 8s linear;
+}
+@keyframes loading {
+    0% {
+        max-width: 0;
+    }
+}
 
 
 
@@ -239,7 +259,7 @@ Movie-Single Hero Image and Title Styles
 ------------------------------------------ */
 
 #hero-image-single {
-	height: 350px;
+	height: 250px;
 	width: 100%;
 	background-color: #444;
 	background-size: cover;
@@ -357,6 +377,14 @@ Media Queries / Responsive Styles
 		padding-left: 5%;
 		padding-right: 5%;
 	}
+
+	.myLoader {
+	    font-size: 3em;
+	}
+	.myLoader:before {
+	    max-width: 4em;
+	}
+
 }
 
 /* Apply margins to the correct posters on large devices */
@@ -546,26 +574,5 @@ Page Not Found Template Styles
 
 .contactDetails{
 	margin-top: 10px;
-	margin-bottom: 10px;
-}
-
-.myLoader {
-    position: relative;
-    color: rgba(0, 0, 0, .3);
-    font-size: 5em;
-    background-color: #3498db;
-}
-.myLoader:before {
-    content: attr(data-text);
-    position: absolute;
-    overflow: hidden;
-    max-width: 7em;
-    white-space: nowrap;
-    color: #fff;
-    animation: loading 8s linear;
-}
-@keyframes loading {
-    0% {
-        max-width: 0;
-    }
+	margin-bottom: 20px;
 }
