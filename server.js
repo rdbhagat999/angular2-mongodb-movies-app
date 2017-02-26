@@ -3,6 +3,7 @@ var path = require("path");
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 var cors = require("cors");
+var helmet = require('helmet');
 
 // Database section START
 const config = require('./config/config');
@@ -21,6 +22,7 @@ mongoose.connection.on('error', ( err ) => {
 const movies = require('./routes/movies.js');
 
 const app = express();
+app.use(helmet());
 
 app.disable('x-powered-by');
 
@@ -28,7 +30,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 app.use(express.static(path.join(__dirname, 'uploads')));
 app.use( cors() );
 app.use(bodyParser.json()); // to send and recieve json data
-app.use(bodyParser.urlencoded({ extended: true })); // TRUE to use with postman
+app.use(bodyParser.urlencoded({ extended: true })); // TRUE to use url-encoded data
 
 app.use('/api', movies);
 
