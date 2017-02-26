@@ -385,6 +385,10 @@ Media Queries / Responsive Styles
 	    max-width: 4em;
 	}
 
+	#posters-wrapper {
+		padding-top: 15px;
+	}
+
 }
 
 /* Apply margins to the correct posters on large devices */
@@ -438,7 +442,12 @@ Media Queries / Responsive Styles
 @media (max-width: 767px) {
 	#hero-image-single #hero-title, #hero-image-notFound #hero-title {
 		width: 75%;
-	}	
+	}
+
+	.poster-wrapper {
+		margin-top: 15px;
+	}
+
 }
 
 
