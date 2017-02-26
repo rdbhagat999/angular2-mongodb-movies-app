@@ -25,12 +25,27 @@ const cpUpload = upload.fields([{ name: 'poster', maxCount: 1 } /* , { name: 'he
 // Get all tasks
 router.get('/movies', function( req, res, next ) {
 
-	Movie.findAsync({})
+	/*Movie.findAsync({}, {}, { skip: 0, limit: 6 } )
 	.then( function( movies ) {
 		res.json( {success:true, movies:movies} );
 	} )
 	.catch( next )
-	.error( console.error );
+	.error( console.error );*/
+
+  var query = Movie.find({ });
+  
+  /*query.select('title description main_characters');
+  query.skip(0);
+  query.where('main_characters').in(['Yoda', 'talking']);
+  query.sort('_id'); // -_id to reverse sort
+  query.limit(0);*/
+  //query.count();
+
+  query.exec(function (err, docs) {
+  if (err) return res.json(err);
+    res.json( {success:true, movies:docs} );
+  });
+
 
 });
 
