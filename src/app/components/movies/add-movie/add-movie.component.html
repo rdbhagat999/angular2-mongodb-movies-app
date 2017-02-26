@@ -10,7 +10,7 @@
 
 			<div class="form-group">
 				<label for="title">Title</label>
-				<input type="text" id="title" class="form-control" formControlName="title" required />
+				<input type="text" id="title" class="form-control" formControlName="title" placeholder="Enter title" required />
 
 				<div *ngIf="formErrors?.title" class="alert alert-danger">
 				  {{ formErrors?.title }}
@@ -20,7 +20,7 @@
 
 			<div class="form-group">
 				<label for="year">Year</label>
-				<input type="text" id="year" class="form-control" formControlName="year" required />
+				<input type="text" id="year" class="form-control" formControlName="year" required placeholder="Enter year" />
 
 				<div *ngIf="formErrors?.year" class="alert alert-danger">
 				  {{ formErrors?.year }}
@@ -50,7 +50,7 @@
 
 				<div class="form-group" *ngFor="let actor of actors.controls; let i=index">
 
-					<input type="text" [id]="i" class="form-control" [formControlName]="i" required />
+					<input type="text" [id]="i" class="form-control" [formControlName]="i" required placeholder="Enter name" />
 
 					<div *ngIf="formErrors?.actors" class="alert alert-danger">
 					  {{ formErrors?.actors }}
