@@ -23,6 +23,8 @@ export class AddMovieComponent implements OnInit {
 
 	submitted: boolean = false;
 
+	loader: boolean = true;
+
 	get actors(): FormArray {
         return <FormArray>this.addMovieForm.get('actors');
     }
@@ -36,6 +38,8 @@ export class AddMovieComponent implements OnInit {
 	}
 
 	buildForm(): void {
+
+		this.loader = false;
 
 		this.addMovieForm = this.fb.group({
 
@@ -99,6 +103,8 @@ export class AddMovieComponent implements OnInit {
 
 	onSubmit( event:any ) {
 
+		this.loader = true;
+
 		let file = event.srcElement[3].files;
 
 		this.movie = this.addMovieForm.value;
@@ -109,11 +115,16 @@ export class AddMovieComponent implements OnInit {
 		console.log(file);*/
 
 		this._ms.postMovieWithFile('', this.movie, file).then( result => {
+
+			this.loader = false;
+
 	        console.log(result);
 	        this._fm.show('Movie successfully saved.', {cssClass:'alert-success', timeout:3000});
 	        this.router.navigate(['movies'])
 	    },
 	    err => {
+
+	    	this.loader = false;
 	    	this._fm.show('Something went wrong! Please try again.', {cssClass:'alert-danger', timeout:3000});
 	    });
 

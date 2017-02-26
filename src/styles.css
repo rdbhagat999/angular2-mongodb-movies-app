@@ -548,3 +548,24 @@ Page Not Found Template Styles
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
+
+.myLoader {
+    position: relative;
+    color: rgba(0, 0, 0, .3);
+    font-size: 5em;
+    background-color: #3498db;
+}
+.myLoader:before {
+    content: attr(data-text);
+    position: absolute;
+    overflow: hidden;
+    max-width: 7em;
+    white-space: nowrap;
+    color: #fff;
+    animation: loading 8s linear;
+}
+@keyframes loading {
+    0% {
+        max-width: 0;
+    }
+}

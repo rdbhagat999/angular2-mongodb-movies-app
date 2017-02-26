@@ -12,22 +12,28 @@
 
     <div class="content-padding clearfix">
 
-        <div class="poster-wrapper">
-            <img src="/movies/{{movie?.poster}}" class="img-responsive">
-        </div>
+        <h1 class="myLoader" data-text="It's loading…" *ngIf="loader">It's loading…</h1>
 
-        <div class="description-wrapper">
+        <div *ngIf="movie">
             
-            <div class="description">
-                <h2 class="movie-header">Description</h2>
-                <p>{{movie?.description}}</p>
+            <div class="poster-wrapper">
+                <img src="/movies/{{movie?.poster}}" class="img-responsive">
             </div>
 
-            <div class="main-characters">
-                <h2 class="movie-header">Main Characters</h2>
-                <ul>
-                    <li *ngFor="let actor of movie?.main_characters">{{actor}}</li>
-                </ul>
+            <div class="description-wrapper">
+                
+                <div class="description">
+                    <h2 class="movie-header">Description</h2>
+                    <p>{{movie?.description}}</p>
+                </div>
+
+                <div class="main-characters">
+                    <h2 class="movie-header">Main Characters</h2>
+                    <ul>
+                        <li *ngFor="let actor of movie?.main_characters">{{actor}}</li>
+                    </ul>
+                </div>
+
             </div>
 
         </div>

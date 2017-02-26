@@ -16,9 +16,15 @@ export class MoviesComponent implements OnInit {
 
 	movies: any = [];
 
+	loader: boolean = false;
+
 	ngOnInit() {
 
+		this.loader = true;
+
 		this._ms.getMovies().subscribe( ( data: any ) => { 
+
+			this.loader = false;
 
 			if( data.success == true ){
 

@@ -19,8 +19,11 @@ export class MovieDetailsComponent implements OnInit {
 	) {}
 
 	movie: Movie;
+	loader: boolean = false;
 
 	ngOnInit() {
+
+		this.loader = true;
 
 		//58949dd6734d1d3956c3cbe8
 
@@ -33,6 +36,8 @@ export class MovieDetailsComponent implements OnInit {
 	    // (+) converts string 'id' to a number
 	    .switchMap((params: Params) => this._ms.getMovie(params['id']))
 	    .subscribe((data: any) => {
+
+	    	this.loader = false;
 
 	    	if( data.success == true ){
 	    		this.movie = data.movie;
