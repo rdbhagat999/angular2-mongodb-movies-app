@@ -37,11 +37,11 @@ export class MovieDetailsComponent implements OnInit {
 	    .switchMap((params: Params) => this._ms.getMovie(params['id']))
 	    .subscribe((data: any) => {
 
-	    	this.loader = false;
-
 	    	if( data.success == true ){
 	    		this.movie = data.movie;
 	    	}
+
+	    	this.loader = false;
 	  
 	    });
 

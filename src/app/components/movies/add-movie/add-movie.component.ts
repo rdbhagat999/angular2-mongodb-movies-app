@@ -39,8 +39,6 @@ export class AddMovieComponent implements OnInit {
 
 	buildForm(): void {
 
-		this.loader = false;
-
 		this.addMovieForm = this.fb.group({
 
 			title: ['', [
@@ -68,6 +66,8 @@ export class AddMovieComponent implements OnInit {
 			poster: ['', []]
 
 		});
+
+		this.loader = false;
 
 		this.addMovieForm.valueChanges
 			.debounceTime(900)
@@ -117,7 +117,7 @@ export class AddMovieComponent implements OnInit {
 		this._ms.postMovieWithFile('', this.movie, file).then( result => {
 
 			this.loader = false;
-
+			
 	        console.log(result);
 	        this._fm.show('Movie successfully saved.', {cssClass:'alert-success', timeout:3000});
 	        this.router.navigate(['movies'])

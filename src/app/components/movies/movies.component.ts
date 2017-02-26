@@ -24,13 +24,13 @@ export class MoviesComponent implements OnInit {
 
 		this._ms.getMovies().subscribe( ( data: any ) => { 
 
-			this.loader = false;
-
 			if( data.success == true ){
 
 				console.log(data.movies); 
 				this.movies = data.movies;
 			}
+
+			this.loader = false;
 
 		} );
 
