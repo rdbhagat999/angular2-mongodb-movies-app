@@ -21,6 +21,8 @@ export class AddMovieComponent implements OnInit {
 
 	addMovieForm: FormGroup;
 
+	uploadFile:any = null;
+
 	submitted: boolean = false;
 
 	loader: boolean = true;
@@ -34,7 +36,6 @@ export class AddMovieComponent implements OnInit {
 
 		this.buildForm();
 		this.addActors();
-
 	}
 
 	buildForm(): void {
@@ -101,18 +102,23 @@ export class AddMovieComponent implements OnInit {
 
 	}
 
-	onSubmit( event:any ) {
+	onFileChange( event ){
+		this.uploadFile = event.srcElement.files;
+    	console.log(this.uploadFile);
+	}
+
+	onSubmit( ) {
 
 		this.loader = true;
 
-		let file = event.srcElement[3].files;
+		let file = this.uploadFile;
 
 		this.movie = this.addMovieForm.value;
 
 		this.submitted = true;
 
-		/*console.log(this.movie);
-		console.log(file);*/
+		console.log(this.movie);
+		console.log(file);
 
 		this._ms.postMovieWithFile('', this.movie, file).then( result => {
 

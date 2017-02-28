@@ -41,7 +41,7 @@
 
 			<div class="form-group">
 				<label for="poster">Poster</label>
-				<input id="poster" type="file" class="form-control" formControlName="poster">
+				<input id="poster" type="file" class="form-control" formControlName="poster" (change)="onFileChange($event)">
 			</div>
 
 			<div formArrayName="actors">
