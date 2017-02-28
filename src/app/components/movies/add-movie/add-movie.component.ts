@@ -109,30 +109,42 @@ export class AddMovieComponent implements OnInit {
 
 	onSubmit( ) {
 
-		this.loader = true;
-
 		let file = this.uploadFile;
-
-		this.movie = this.addMovieForm.value;
-
-		this.submitted = true;
-
-		console.log(this.movie);
 		console.log(file);
 
-		this._ms.postMovieWithFile('', this.movie, file).then( result => {
+		if( file == null ){
 
-			this.loader = false;
-			
-	        console.log(result);
-	        this._fm.show('Movie successfully saved.', {cssClass:'alert-success', timeout:3000});
-	        this.router.navigate(['movies'])
-	    },
-	    err => {
+			this._fm.show('Poster image required', {cssClass:'alert-danger', timeout:3000});
+	        return false;
 
-	    	this.loader = false;
-	    	this._fm.show('Something went wrong! Please try again.', {cssClass:'alert-danger', timeout:3000});
-	    });
+		}else{
+
+			this.loader = true;
+
+			this.movie = this.addMovieForm.value;
+
+			this.submitted = true;
+
+			console.log(this.movie);
+
+			/*this._ms.postMovieWithFile('', this.movie, file).then( result => {
+
+				this.loader = false;
+				
+		        console.log(result);
+		        this._fm.show('Movie successfully saved.', {cssClass:'alert-success', timeout:3000});
+		        this.router.navigate(['movies'])
+		    },
+		    err => {
+
+		    	this.loader = false;
+		    	this._fm.show('Something went wrong! Please try again.', {cssClass:'alert-danger', timeout:3000});
+		    
+		    });*/
+
+		}
+
+		
 
 	}
 
