@@ -42,6 +42,11 @@
 			<div class="form-group">
 				<label for="poster">Poster</label>
 				<input id="poster" type="file" class="form-control" formControlName="poster" (change)="onFileChange($event)">
+
+				<div *ngIf="posterImageError" class="alert alert-danger">
+				  {{ posterImageError }}
+				</div>
+
 			</div>
 
 			<div formArrayName="actors">

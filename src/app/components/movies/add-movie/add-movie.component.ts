@@ -22,6 +22,7 @@ export class AddMovieComponent implements OnInit {
 	addMovieForm: FormGroup;
 
 	uploadFile:any = null;
+	posterImageError: string = "";
 
 	submitted: boolean = false;
 
@@ -69,6 +70,7 @@ export class AddMovieComponent implements OnInit {
 		});
 
 		this.loader = false;
+		this.posterImageError = "";
 
 		this.addMovieForm.valueChanges
 			.debounceTime(900)
@@ -114,6 +116,7 @@ export class AddMovieComponent implements OnInit {
 
 		if( file == null ){
 
+			this.posterImageError = "Poster image is required";
 			this._fm.show('Poster image required', {cssClass:'alert-danger', timeout:3000});
 	        return false;
 
@@ -127,7 +130,7 @@ export class AddMovieComponent implements OnInit {
 
 			console.log(this.movie);
 
-			/*this._ms.postMovieWithFile('', this.movie, file).then( result => {
+			this._ms.postMovieWithFile('', this.movie, file).then( result => {
 
 				this.loader = false;
 				
@@ -140,7 +143,7 @@ export class AddMovieComponent implements OnInit {
 		    	this.loader = false;
 		    	this._fm.show('Something went wrong! Please try again.', {cssClass:'alert-danger', timeout:3000});
 		    
-		    });*/
+		    });
 
 		}
 
