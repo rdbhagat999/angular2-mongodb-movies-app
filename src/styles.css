@@ -228,7 +228,7 @@ footer .social-media-icons a:first-child:hover i {
     content: attr(data-text);
     position: absolute;
     overflow: hidden;
-    max-width: 7em;
+    max-width: 100%;
     white-space: nowrap;
     color: #fff;
     animation: loading 8s linear;
