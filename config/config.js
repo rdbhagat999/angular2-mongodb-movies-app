@@ -1,6 +1,6 @@
-const uri = "mongodb://admin:admin@ds139979.mlab.com:39979/mean_projects_app";
+const mongodb_uri = "";
 
 module.exports = {
-	"database": uri,
+	"database": mongodb_uri,
 	"secret": "someSecret"
 }
